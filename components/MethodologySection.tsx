@@ -50,7 +50,7 @@ export function MethodologySection() {
             </ul>
           </div>
 
-          {/* リサーチ・分析手法 */}
+          {/* 調査・分析手法 */}
           <div className="border border-slate-200/90 bg-white p-8 sm:p-10">
             <div className="mb-6 flex items-center justify-between border-b border-slate-100 pb-4">
               <h3 className="text-base font-bold tracking-wide text-slate-950 sm:text-lg">
@@ -65,11 +65,11 @@ export function MethodologySection() {
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
-              {methodology.methods.map((methodLine, idx) => {
-                const [category, detail] = methodLine.split("：");
+              {methodology.methods.map((methodItem, idx) => {
+                const [category, detail] = methodItem.name.split("：");
                 return (
                   <div
-                    key={methodLine}
+                    key={methodItem.name}
                     className="flex flex-col justify-between border border-slate-200/80 bg-[#FAFAFA] p-6 transition-colors duration-300 hover:border-slate-400 hover:bg-white"
                   >
                     <div>
@@ -89,6 +89,12 @@ export function MethodologySection() {
                           {detail}
                         </p>
                       )}
+                    </div>
+
+                    <div className="mt-5 border-t border-slate-200/70 pt-3">
+                      <span className="inline-block bg-white px-2.5 py-1 text-[11px] font-medium tracking-wider text-slate-600 ring-1 ring-slate-200/80">
+                        活用領域：{methodItem.usedIn}
+                      </span>
                     </div>
                   </div>
                 );

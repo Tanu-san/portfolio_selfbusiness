@@ -43,6 +43,14 @@ export function ServicesSection() {
                   <p className="text-sm leading-[1.85] text-slate-600 sm:text-base">
                     {service.body}
                   </p>
+
+                  {service.expertise && (
+                    <div className="border-l-2 border-slate-300 pl-3.5 pt-0.5">
+                      <p className="text-xs leading-[1.8] text-slate-500 sm:text-sm">
+                        {service.expertise}
+                      </p>
+                    </div>
+                  )}
                 </div>
 
                 <div className="shrink-0">
@@ -85,6 +93,12 @@ export function ServicesSection() {
                 <p className="text-sm leading-[1.8] text-slate-600">
                   {service.body}
                 </p>
+
+                {service.expertise && (
+                  <p className="mt-4 border-l-2 border-slate-200 pl-3 text-xs leading-[1.75] text-slate-500">
+                    {service.expertise}
+                  </p>
+                )}
               </div>
 
               {service.price && (

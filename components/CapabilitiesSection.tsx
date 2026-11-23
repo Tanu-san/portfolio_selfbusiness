@@ -49,6 +49,30 @@ export function CapabilitiesSection() {
                   {item.body}
                 </p>
               </div>
+
+              {/* 手法・成果物・対応サービスとのひも付け */}
+              <dl className="mt-7 space-y-3 border-t border-slate-100 pt-5 text-xs leading-relaxed">
+                <div>
+                  <dt className="font-bold tracking-wider text-slate-400">
+                    主な手法
+                  </dt>
+                  <dd className="mt-0.5 text-slate-700">{item.methods}</dd>
+                </div>
+                <div>
+                  <dt className="font-bold tracking-wider text-slate-400">
+                    成果物の例
+                  </dt>
+                  <dd className="mt-0.5 text-slate-700">{item.deliverables}</dd>
+                </div>
+                <div>
+                  <dt className="font-bold tracking-wider text-slate-400">
+                    対応サービス
+                  </dt>
+                  <dd className="mt-0.5 font-medium text-slate-900">
+                    {item.services}
+                  </dd>
+                </div>
+              </dl>
             </div>
           ))}
         </div>

@@ -1,9 +1,23 @@
-import {
-  PROFILE_CONTENT,
-  SOCIAL_LINKS,
-  GALLERY_PHOTOS,
-} from "@/lib/content";
+import { profile, links, galleryPhotos } from "@/lib/content";
 import { MonochromePhoto } from "@/components/MonochromePhoto";
+
+const SOCIAL_ITEMS = [
+  {
+    name: "note",
+    handle: "@researchandmetal",
+    url: links.note,
+  },
+  {
+    name: "X",
+    handle: "@tadloveresearch",
+    url: links.x,
+  },
+  {
+    name: "LinkedIn",
+    handle: "Tadakuni Tani",
+    url: links.linkedin,
+  },
+];
 
 export function ProfileAndLinksSection() {
   return (
@@ -13,9 +27,9 @@ export function ProfileAndLinksSection() {
     >
       <div className="mx-auto max-w-5xl px-6">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
-          {/* 左側：7. プロフィール & 8. 発信 */}
+          {/* 左側：プロフィール & 発信 */}
           <div className="space-y-14 lg:col-span-7">
-            {/* 7. プロフィール */}
+            {/* プロフィール */}
             <div>
               <div className="mb-8 space-y-2">
                 <p
@@ -30,12 +44,19 @@ export function ProfileAndLinksSection() {
               </div>
 
               <div className="space-y-8 border border-slate-200/90 bg-[#FAFAFA] p-8">
-                <div>
+                {/* 想い・モチベーション */}
+                <div className="border-l-2 border-slate-900 pl-4">
+                  <p className="text-sm font-bold leading-[1.85] text-slate-900 sm:text-base">
+                    {profile.motivation}
+                  </p>
+                </div>
+
+                <div className="border-t border-slate-200/80 pt-6">
                   <h3 className="mb-3 text-xs font-bold tracking-[0.15em] text-slate-400">
                     学歴
                   </h3>
                   <ul className="space-y-2 text-sm font-medium leading-relaxed text-slate-900">
-                    {PROFILE_CONTENT.education.map((edu) => (
+                    {profile.education.map((edu) => (
                       <li key={edu}>{edu}</li>
                     ))}
                   </ul>
@@ -46,7 +67,7 @@ export function ProfileAndLinksSection() {
                     資格
                   </h3>
                   <ul className="flex flex-wrap gap-2">
-                    {PROFILE_CONTENT.certifications.map((cert) => (
+                    {profile.qualifications.map((cert) => (
                       <li
                         key={cert}
                         className="border border-slate-200 bg-white px-3.5 py-1.5 text-xs font-medium tracking-wide text-slate-800"
@@ -59,7 +80,7 @@ export function ProfileAndLinksSection() {
               </div>
             </div>
 
-            {/* 8. 発信 */}
+            {/* 発信 */}
             <div>
               <div className="mb-8 space-y-2">
                 <p
@@ -74,13 +95,13 @@ export function ProfileAndLinksSection() {
               </div>
 
               <div className="divide-y divide-slate-200 border-y border-slate-200">
-                {SOCIAL_LINKS.map((link) => (
+                {SOCIAL_ITEMS.map((link) => (
                   <a
                     key={link.name}
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-center justify-between py-5 transition-colors hover:bg-[#FAFAFA] px-2"
+                    className="group flex items-center justify-between px-2 py-5 transition-colors hover:bg-[#FAFAFA]"
                   >
                     <div className="flex items-baseline gap-4">
                       <span className="w-24 text-sm font-bold tracking-wide text-slate-950">
@@ -107,8 +128,8 @@ export function ProfileAndLinksSection() {
           <div className="flex flex-col justify-center lg:col-span-5">
             <div className="relative mx-auto w-full max-w-[360px] lg:max-w-none">
               <MonochromePhoto
-                src={GALLERY_PHOTOS.profileSide.src}
-                alt={GALLERY_PHOTOS.profileSide.alt}
+                src={galleryPhotos.profileSide}
+                alt="モノクロ写真"
                 aspectClassName="aspect-[3/4]"
                 placeholderLabel="ARCHIVE / photo-accent-2.jpg"
                 variant="portrait"

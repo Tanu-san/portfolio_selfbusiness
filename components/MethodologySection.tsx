@@ -1,4 +1,4 @@
-import { METHODOLOGIES } from "@/lib/content";
+import { methodology } from "@/lib/content";
 
 export function MethodologySection() {
   return (
@@ -15,42 +15,86 @@ export function MethodologySection() {
             Methodology
           </p>
           <h2 className="text-2xl font-bold tracking-[0.06em] text-slate-950 sm:text-3xl">
-            方法論
+            専門領域・方法論
           </h2>
         </div>
 
-        <div className="grid gap-px overflow-hidden border border-slate-200 bg-slate-200 sm:grid-cols-2">
-          {METHODOLOGIES.map((method, idx) => (
-            <div
-              key={method.category}
-              className="flex flex-col justify-between bg-white p-8 transition-colors duration-300 hover:bg-[#FAFAFA]"
-            >
-              <div>
-                <div className="mb-4 flex items-center justify-between">
-                  <h3 className="text-base font-bold tracking-wide text-slate-950 sm:text-lg">
-                    {method.category}
-                  </h3>
-                  <span
-                    className="text-sm italic text-slate-300"
-                    style={{ fontFamily: "var(--font-cormorant), serif" }}
-                  >
-                    0{idx + 1}
-                  </span>
-                </div>
-
-                <ul className="mt-5 flex flex-wrap gap-2">
-                  {method.items.map((subItem) => (
-                    <li
-                      key={subItem}
-                      className="border border-slate-200/90 bg-[#FAFAFA] px-3.5 py-1.5 text-xs font-medium tracking-wide text-slate-700 sm:text-sm"
-                    >
-                      {subItem}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+        <div className="space-y-8">
+          {/* 専門領域 */}
+          <div className="border border-slate-200/90 bg-[#FAFAFA] p-8 sm:p-10">
+            <div className="mb-5 flex items-center justify-between border-b border-slate-200/80 pb-4">
+              <h3 className="text-base font-bold tracking-wide text-slate-950 sm:text-lg">
+                専門領域
+              </h3>
+              <span
+                className="text-sm italic text-slate-400"
+                style={{ fontFamily: "var(--font-cormorant), serif" }}
+              >
+                Specialties
+              </span>
             </div>
-          ))}
+
+            <ul className="space-y-3">
+              {methodology.specialties.map((item) => (
+                <li
+                  key={item}
+                  className="flex items-start gap-3 text-sm leading-[1.85] text-slate-700 sm:text-base"
+                >
+                  <span
+                    className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-900"
+                    aria-hidden="true"
+                  />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* リサーチ・分析手法 */}
+          <div className="border border-slate-200/90 bg-white p-8 sm:p-10">
+            <div className="mb-6 flex items-center justify-between border-b border-slate-100 pb-4">
+              <h3 className="text-base font-bold tracking-wide text-slate-950 sm:text-lg">
+                調査・分析手法
+              </h3>
+              <span
+                className="text-sm italic text-slate-400"
+                style={{ fontFamily: "var(--font-cormorant), serif" }}
+              >
+                Methods
+              </span>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {methodology.methods.map((methodLine, idx) => {
+                const [category, detail] = methodLine.split("：");
+                return (
+                  <div
+                    key={methodLine}
+                    className="flex flex-col justify-between border border-slate-200/80 bg-[#FAFAFA] p-6 transition-colors duration-300 hover:border-slate-400 hover:bg-white"
+                  >
+                    <div>
+                      <div className="mb-3 flex items-center justify-between">
+                        <span className="text-sm font-bold tracking-wide text-slate-950">
+                          {category}
+                        </span>
+                        <span
+                          className="text-xs italic text-slate-400"
+                          style={{ fontFamily: "var(--font-cormorant), serif" }}
+                        >
+                          0{idx + 1}
+                        </span>
+                      </div>
+                      {detail && (
+                        <p className="text-xs leading-[1.8] text-slate-600 sm:text-sm">
+                          {detail}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </section>

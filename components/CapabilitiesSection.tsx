@@ -1,4 +1,4 @@
-import { CAPABILITIES } from "@/lib/content";
+import { canDo } from "@/lib/content";
 
 export function CapabilitiesSection() {
   return (
@@ -20,12 +20,11 @@ export function CapabilitiesSection() {
         </div>
 
         <div className="grid gap-8 md:grid-cols-3">
-          {CAPABILITIES.map((item, index) => (
+          {canDo.map((item, index) => (
             <div
-              key={item.id}
+              key={item.title}
               className="group relative flex flex-col justify-between border border-slate-200/90 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:border-slate-400 hover:shadow-md"
             >
-              {/* 上部のアクセントバー */}
               <span
                 className="absolute top-0 left-0 h-[2px] w-0 bg-slate-950 transition-all duration-500 group-hover:w-full"
                 aria-hidden="true"
@@ -47,7 +46,7 @@ export function CapabilitiesSection() {
                 </h3>
 
                 <p className="text-sm leading-[1.85] text-slate-600">
-                  {item.description}
+                  {item.body}
                 </p>
               </div>
             </div>

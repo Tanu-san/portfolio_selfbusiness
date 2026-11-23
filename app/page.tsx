@@ -6,7 +6,7 @@ import { MethodologySection } from "@/components/MethodologySection";
 import { ServicesSection } from "@/components/ServicesSection";
 import { ProfileAndLinksSection } from "@/components/ProfileAndLinksSection";
 import { ContactSection } from "@/components/ContactSection";
-import { HERO_CONTENT } from "@/lib/content";
+import { hero } from "@/lib/content";
 
 export default function HomePage() {
   return (
@@ -17,7 +17,7 @@ export default function HomePage() {
             href="#"
             className="text-base font-bold tracking-[0.08em] text-slate-950 transition-opacity hover:opacity-75"
           >
-            {HERO_CONTENT.name}
+            {hero.name}
           </a>
 
           <nav aria-label="ページ内ナビゲーション" className="hidden md:block">
@@ -77,7 +77,7 @@ export default function HomePage() {
             href="#contact"
             className="bg-slate-950 px-4 py-2 text-xs font-bold tracking-wider text-white transition-colors hover:bg-slate-800"
           >
-            {HERO_CONTENT.ctaLabel}
+            相談する（無料）
           </a>
         </div>
       </header>

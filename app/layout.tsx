@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Noto_Sans_JP, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
-import { SITE_META } from "@/lib/content";
+import { hero } from "@/lib/content";
 
 const notoSansJP = Noto_Sans_JP({
   subsets: ["latin"],
@@ -19,8 +19,12 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: SITE_META.title,
-  description: SITE_META.description,
+  title: `${hero.name}｜${hero.title}`,
+  description: hero.lead,
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function RootLayout({

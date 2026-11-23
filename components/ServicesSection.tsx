@@ -1,8 +1,8 @@
-import { SERVICES } from "@/lib/content";
+import { services, serviceNote } from "@/lib/content";
 
 export function ServicesSection() {
-  const activeServices = SERVICES.filter((s) => s.isAvailable);
-  const upcomingServices = SERVICES.filter((s) => !s.isAvailable);
+  const activeServices = services.filter((s) => s.status === "受付中");
+  const upcomingServices = services.filter((s) => s.status !== "受付中");
 
   return (
     <section
@@ -26,7 +26,7 @@ export function ServicesSection() {
         <div className="space-y-6">
           {activeServices.map((service) => (
             <div
-              key={service.id}
+              key={service.name}
               className="border border-slate-900 bg-white p-8 shadow-sm sm:p-10"
             >
               <div className="flex flex-col justify-between gap-8 md:flex-row md:items-center">
@@ -41,16 +41,16 @@ export function ServicesSection() {
                   </h3>
 
                   <p className="text-sm leading-[1.85] text-slate-600 sm:text-base">
-                    {service.description}
+                    {service.body}
                   </p>
                 </div>
 
                 <div className="shrink-0">
                   <a
-                    href={service.ctaHref}
+                    href="#contact"
                     className="group inline-flex items-center gap-3 bg-slate-950 px-7 py-4 text-sm font-bold tracking-wider text-white transition-all duration-300 hover:bg-slate-800"
                   >
-                    <span>{service.ctaLabel}</span>
+                    <span>無料で相談する</span>
                     <span
                       className="transition-transform duration-300 group-hover:translate-x-1"
                       aria-hidden="true"
@@ -68,7 +68,7 @@ export function ServicesSection() {
         <div className="mt-8 grid gap-6 md:grid-cols-3">
           {upcomingServices.map((service) => (
             <div
-              key={service.id}
+              key={service.name}
               className="flex flex-col justify-between border border-slate-200/90 bg-white/80 p-7"
             >
               <div>
@@ -83,12 +83,25 @@ export function ServicesSection() {
                 </h3>
 
                 <p className="text-sm leading-[1.8] text-slate-600">
-                  {service.description}
+                  {service.body}
                 </p>
               </div>
+
+              {service.price && (
+                <div className="mt-6 border-t border-slate-100 pt-4">
+                  <p className="text-xs font-medium leading-relaxed text-slate-700">
+                    {service.price}
+                  </p>
+                </div>
+              )}
             </div>
           ))}
         </div>
+
+        {/* 注意事項・お受けできないご依頼について */}
+        <p className="mt-8 text-xs leading-[1.8] text-slate-500">
+          ※ {serviceNote}
+        </p>
       </div>
     </section>
   );

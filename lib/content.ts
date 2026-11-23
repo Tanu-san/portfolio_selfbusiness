@@ -1,186 +1,135 @@
-export const SITE_META = {
-  title: "谷 忠邦｜マーケティング・リサーチ支援",
-  description:
-    "生活者の『きもち』を数字とことばで読み解く、リサーチとブランディングの支援",
-} as const;
+// ポートフォリオページの本文。文言の修正はこのファイルだけを直す。
+// 公開は会社の許可が出てから。それまでは非公開（Vercelプレビュー）で作ること。
 
-export const HERO_CONTENT = {
+export const hero = {
   name: "谷 忠邦",
-  imageSrc: "/profile.jpg",
-  imageAlt: "谷 忠邦のプロフィール写真",
-  title:
-    "マーケティング・リサーチ プロフェッショナル／株式会社メディカ出版 マーケティング部 部長",
-  statement:
-    "生活者の『きもち』を数字とことばで読み解き、ブランドと新規事業の『次の一手』を決める手伝いをします。",
-  subText: "リサーチ歴15年以上。グリコ、USJ、デンソー、ダスキンを経て現職。",
-  ctaLabel: "相談する（無料）",
-  ctaHref: "#contact",
-} as const;
+  ruby: "たぬさん",
+  title: "マーケティング・リサーチ プロフェッショナル",
+  company: "株式会社メディカ出版 マーケティング部 部長",
+  lead: "生活者の「きもち」を数字とことばで読み解き、ブランドと新規事業の「次の一手」を決める手伝いをします。",
+  note: "リサーチ歴15年以上。グリコ、USJ、デンソー、ダスキンを経て現職。",
+  photo: "/profile.jpg", // 顔写真。public/profile.jpg に配置する。未配置でも崩れないこと
+};
 
-export const GALLERY_PHOTOS = {
-  interlude: {
-    src: "/photo-accent-1.jpg",
-    alt: "モノクローム写真 01",
-  },
-  profileSide: {
-    src: "/photo-accent-2.jpg",
-    alt: "モノクローム写真 02",
-  },
-} as const;
+export const galleryPhotos = {
+  interlude: "/photo-accent-1.jpg", // プロセス下のワイド写真。public/photo-accent-1.jpg に配置
+  profileSide: "/photo-accent-2.jpg", // プロフィール横の縦長写真。public/photo-accent-2.jpg に配置
+};
 
-export const CAPABILITIES = [
+export const canDo = [
   {
-    id: "research",
     title: "生活者リサーチを支援",
-    description:
-      "定性・定量の両面から生活者のリアルな本音や行動背景を捉え、意思決定につながるインサイトを導き出します。",
+    body: "何がリサーチ課題かを一緒に考え、協力会社への相談の前に、課題の整理と進め方を決める。初めてリサーチを任された人のための支援。",
   },
   {
-    id: "branding",
-    title: "はじめてのマーケティング・ブランディングを支援",
-    description:
-      "専任担当者がいない企業やチームでも実践できるよう、課題整理からターゲット設定、ブランド戦略の骨格づくりまで伴走します。",
+    title: "はじめてのマーケティング／ブランディングを支援",
+    body: "課題抽出から戦略立案まで、生活者リサーチのデータを武器に進める。",
   },
   {
-    id: "new-business",
     title: "はじめての新規ビジネス企画を支援",
-    description:
-      "アイデアの種を顧客視点で検証し、仮説構築からコンセプト開発、初期検証の設計まで次の一手を具体化します。",
+    body: "パーパス、競合環境、ターゲティング、ポジショニング、価値提案、プライシングまでを一貫して検討する。",
   },
-] as const;
+];
 
-export const PROCESS_STEPS = [
-  { step: "01", title: "ご相談（無料）" },
-  { step: "02", title: "ご提案" },
-  { step: "03", title: "お仕事依頼" },
-  { step: "04", title: "お仕事実施" },
-  { step: "05", title: "ご納品" },
-  { step: "06", title: "お支払い" },
-] as const;
+export const flow = [
+  "ご相談（無料）",
+  "ご提案",
+  "お仕事依頼",
+  "お仕事実施",
+  "ご納品",
+  "お支払い",
+];
 
-export const ACHIEVEMENTS = [
+export const achievements = [
   {
     company: "江崎グリコ",
-    period: "2014〜2022",
-    description:
-      "ポッキー、ビスコ、SUNAOなど主要ブランドを担当。新商品・大型リニューアル20件以上、グローバル・プロジェクト20件以上",
+    period: "2014〜2022・コンシューマー・リサーチ部",
+    body: "ポッキー、ビスコ、SUNAO、アーモンド効果など主要ブランドを担当。新商品・大型リニューアル20件以上、グローバル・プロジェクト20件以上。ビスコは担当期間中、売上・営業利益が前年比約110〜120%で推移。SUNAOはブランド全体リニューアル後、売上・営業利益が前年比約120〜130%。",
   },
   {
     company: "USJ",
     period: "2022〜2023",
-    description: "LTV全体戦略、顧客セグメンテーションの開発と実行",
+    body: "LTV全体戦略、顧客セグメンテーションの開発と実行。",
   },
   {
     company: "デンソー",
     period: "2023〜2024",
-    description: "全社CX戦略の立案、UX評価アプリの開発",
+    body: "全社CX戦略の立案、UX評価アプリの開発・データ分析機能のアップグレード。",
   },
   {
     company: "ダスキン",
-    period: "2024",
-    description: "ミスタードーナツ事業の短中長期計画策定",
+    period: "2024〜",
+    body: "ミスタードーナツ事業の短中長期計画策定、リサーチの利活用の仕組みづくり。",
   },
   {
     company: "株式会社メディカ出版",
-    period: "2024年12月〜",
-    description: "マーケティング部 部長（2026年10月〜）",
+    period: "2024年12月〜・マーケティング部（2026年10月より部長）",
+    body: "現職。マーケティング部 部長。",
   },
-] as const;
+];
 
-export const METHODOLOGIES = [
-  {
-    category: "質的調査",
-    items: ["デプスインタビュー", "家庭訪問", "行動観察"],
-  },
-  {
-    category: "量的調査",
-    items: ["アンケート", "ソーシャルリスニング"],
-  },
-  {
-    category: "データ分析",
-    items: ["定量・定性データの統合分析", "課題構造化・インサイト抽出"],
-  },
-  {
-    category: "生活者セグメンテーション",
-    items: ["価値観・行動ベースの顧客理解", "ターゲット戦略設計"],
-  },
-] as const;
+export const award = "マーケティング・マスターコース関西20期 優秀論文（鳥居道夫賞）";
 
-export const SERVICES = [
+export const methodology = {
+  specialties: [
+    "リサーチ（生活者理解／プロダクト理解／KPI予測・効果検証）",
+    "社会心理学、パーソナリティ心理学、対人コミュニケーション、異文化コミュニケーション、カウンセリング心理学、産業カウンセリング心理学",
+  ],
+  methods: [
+    "質的調査：1on1デプス、家庭訪問、グループインタビュー、行動観察",
+    "量的調査：アンケート、ソーシャルリスニング、テキストマイニング",
+    "データ分析：基礎統計、回帰・因子・クラスタリングなど",
+    "質的×量的のハイブリッド：生活者セグメンテーション、ブランドエクイティ",
+  ],
+};
+
+// 副業ライン。「準備中」の3つには申込ボタンを付けないこと。相談フォームへの誘導だけにする。
+export const services = [
   {
-    id: "tads-research-supports",
     name: "Tad's Research Supports",
-    status: "受付中" as const,
-    isAvailable: true,
-    description:
-      "リサーチ設計・実査支援・データ分析・マーケティング課題の壁打ちなど、状況に合わせて柔軟にサポートします。",
-    ctaLabel: "相談する（無料）",
-    ctaHref: "#contact",
+    status: "受付中",
+    body: "はじめてのリサーチ・マーケティング・新規ビジネス企画の支援。相談は無料。",
   },
   {
-    id: "insight-report",
     name: "インサイト解読レポート",
-    status: "準備中" as const,
-    isAvailable: false,
-    description:
-      "既存データや生活者の声をもとに、ブランドの次の一手につながる構造化されたインサイトレポートを提供します。",
+    status: "準備中",
+    body: "生活者インサイトを読み解き、次の打ち手を提案するレポート。PDF納品・5営業日。",
+    price: "モニター9,800円（先着3名）→通常29,800円",
   },
   {
-    id: "career-inventory",
     name: "キャリア棚卸しサポート",
-    status: "準備中" as const,
-    isAvailable: false,
-    description:
-      "対話と構造化のアプローチで、これまでの経験・強み・価値観を言語化し、次のキャリアの方向性を整理します。",
+    status: "準備中",
+    body: "経験を言葉にする支援。全2回・各90分のセッションで、強みややりたいことを見つける。月3名限定。",
+    price: "通常69,800円／初回3名のみモニター49,800円",
   },
   {
-    id: "brand-scope",
     name: "ブランドスコープ",
-    status: "準備中" as const,
-    isAvailable: false,
-    description:
-      "生活者視点からブランドの現在地と伸びしろを可視化し、ポジショニングと戦略の優先順位を明確にします。",
+    status: "準備中",
+    body: "ブランド名と公式URLから自動診断し、理想像とのギャップをもとにリサーチ設計と提案をまとめるレポート。",
+    price: "自動診断は無料／レポートはモニター9,800円（先着3名）→通常29,800円",
   },
-] as const;
+];
 
-export const PROFILE_CONTENT = {
+export const serviceNote = "準備中の3サービスは、会社への相談の決着後に開始します。医療・出版系のご依頼、および本業と利害が重なる相手からのご依頼はお受けできません。";
+
+export const profile = {
   education: [
     "神戸市外国語大学 国際関係学科",
-    "大阪大学大学院 人間科学研究科 修士",
+    "大阪大学大学院 人間科学研究科 修士（対人社会心理学、ユーモアと笑いの機能の研究）",
   ],
-  certifications: [
-    "産業カウンセラー",
-    "上級心理カウンセラー",
-    "生成AIパスポート",
-    "ITパスポート",
-    "TOEIC 790",
-  ],
-} as const;
+  qualifications: ["産業カウンセラー", "上級心理カウンセラー", "生成AIパスポート", "ITパスポート", "TOEIC 790"],
+  motivation: "自分が今まで色々助けられたから — 経験を言葉にする支援をしたい。",
+};
 
-export const SOCIAL_LINKS = [
-  {
-    name: "note",
-    handle: "researchandmetal",
-    url: "https://note.com/researchandmetal",
-  },
-  {
-    name: "X",
-    handle: "@tadloveresearch",
-    url: "https://x.com/tadloveresearch",
-  },
-  {
-    name: "LinkedIn",
-    handle: "Tadakuni Tani",
-    url: "https://www.linkedin.com/in/tadakunitani89585a42/",
-  },
-] as const;
+export const links = {
+  note: "https://note.com/researchandmetal", // リサーチ系note。公開前にURLを確認すること
+  x: "https://x.com/tadloveresearch", // リサーチ系X
+  linkedin: "https://www.linkedin.com/in/tadakunitani89585a42/",
+};
 
-export const CONTACT_CONTENT = {
-  heading: "相談・問い合わせ",
-  description:
-    "リサーチやマーケティング、新規事業に関するご相談は、下記フォームまたはメールよりお気軽にお問い合わせください。",
-  googleFormLabel: "Googleフォームから相談する",
-  googleFormUrl: "#",
-  emailLabel: "メールで問い合わせる",
+export const contact = {
+  // GoogleフォームのURLは未定。決まり次第ここだけ差し替える。決まるまでは "#" のままにしないこと（リンク切れに見えるため、フォーム未設定の間はメールへの誘導だけ表示する）
+  formUrl: "",
   email: "communication.works.2010@gmail.com",
-} as const;
+  note: "住所・電話番号は請求時（問い合わせ時）に開示します。",
+};

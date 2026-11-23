@@ -1,4 +1,4 @@
-import { HERO_CONTENT } from "@/lib/content";
+import { hero } from "@/lib/content";
 import { MonochromePhoto } from "@/components/MonochromePhoto";
 
 export function HeroSection() {
@@ -19,31 +19,37 @@ export function HeroSection() {
                 </span>
               </div>
 
-              <p className="text-xs font-medium leading-relaxed tracking-wide text-slate-600 sm:text-sm">
-                {HERO_CONTENT.title}
-              </p>
+              <div className="space-y-1 text-xs font-medium leading-relaxed tracking-wide text-slate-600 sm:text-sm">
+                <p>{hero.title}</p>
+                <p>{hero.company}</p>
+              </div>
 
-              <h1 className="text-4xl font-bold tracking-[0.06em] text-slate-950 sm:text-5xl">
-                {HERO_CONTENT.name}
-              </h1>
+              <div className="flex flex-wrap items-baseline gap-4 pt-1">
+                <h1 className="text-4xl font-bold tracking-[0.06em] text-slate-950 sm:text-5xl">
+                  {hero.name}
+                </h1>
+                <span className="text-sm font-medium tracking-widest text-slate-500">
+                  （{hero.ruby}）
+                </span>
+              </div>
             </div>
 
             <div className="border-l-2 border-slate-900 pl-5">
               <p className="text-lg font-bold leading-[1.85] tracking-wide text-slate-900 sm:text-xl">
-                {HERO_CONTENT.statement}
+                {hero.lead}
               </p>
             </div>
 
             <p className="text-sm leading-relaxed tracking-wide text-slate-600">
-              {HERO_CONTENT.subText}
+              {hero.note}
             </p>
 
             <div className="pt-2">
               <a
-                href={HERO_CONTENT.ctaHref}
+                href="#contact"
                 className="group inline-flex items-center gap-3 bg-slate-950 px-8 py-4 text-sm font-bold tracking-wider text-white transition-all duration-300 hover:bg-slate-800"
               >
-                <span>{HERO_CONTENT.ctaLabel}</span>
+                <span>相談する（無料）</span>
                 <span
                   className="transition-transform duration-300 group-hover:translate-x-1"
                   aria-hidden="true"
@@ -57,14 +63,13 @@ export function HeroSection() {
           {/* 右側：モノクロ・ポートレート枠 */}
           <div className="mx-auto w-full max-w-[280px] sm:max-w-[320px] md:col-span-5 md:max-w-none">
             <div className="relative">
-              {/* 背面のオフセット枠（デザインアクセント） */}
               <div
                 className="absolute -right-3 -bottom-3 h-full w-full border border-slate-300/90 bg-slate-50"
                 aria-hidden="true"
               />
               <MonochromePhoto
-                src={HERO_CONTENT.imageSrc}
-                alt={HERO_CONTENT.imageAlt}
+                src={hero.photo}
+                alt={`${hero.name}のプロフィール写真`}
                 aspectClassName="aspect-[4/5]"
                 placeholderLabel="PORTRAIT / profile.jpg"
                 variant="portrait"

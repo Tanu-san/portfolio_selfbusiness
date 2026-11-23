@@ -50,7 +50,6 @@ export function CapabilitiesSection() {
                 </p>
               </div>
 
-              {/* 手法・成果物・対応サービスとのひも付け */}
               <dl className="mt-7 space-y-3 border-t border-slate-100 pt-5 text-xs leading-relaxed">
                 <div>
                   <dt className="font-bold tracking-wider text-slate-400">
@@ -68,8 +67,14 @@ export function CapabilitiesSection() {
                   <dt className="font-bold tracking-wider text-slate-400">
                     対応サービス
                   </dt>
-                  <dd className="mt-0.5 font-medium text-slate-900">
-                    {item.services}
+                  <dd className="mt-0.5">
+                    <a
+                      href="#services"
+                      className="inline-flex items-center gap-1 font-medium text-slate-900 underline decoration-slate-300 underline-offset-4 transition-colors hover:decoration-slate-900"
+                    >
+                      <span>{item.services}</span>
+                      <span aria-hidden="true">↓</span>
+                    </a>
                   </dd>
                 </div>
               </dl>
